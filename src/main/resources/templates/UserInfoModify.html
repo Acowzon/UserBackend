@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acowzon-userinformation</title>
+    <link rel="stylesheet" href=".\reset.css">
+    <style type=".\reset.css">
+    </style>
+</head>
+
+
+<body>
+    
+    <h1 align="center">Acowzon-userinformation</h1>
+    <table align="center" style="border: 1px;margin: 0 auto;background:floralwhite" width="50%" cellpadding="5" cellspacing="0" >
+
+    <tr>
+        <tr>
+            <td>
+                User-ID: <!--p th:text="${userPojoImpl.user_id}"></p-->
+            </td>
+        </tr>
+        <td>
+            Username:  <input class="usrinput fl" type="text" placeholder="Name">
+            <input id="btnmodify1" class="fl" type="button" value="modify">
+        </td>
+        </tr>
+        <tr>
+            <td>
+                Password:  <input class="usrinput f2" type="text" placeholder="Password">
+                <input id="btnmodify2" class="f2" type="button" value="modify">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                PhoneNumber:  <input class="usrinput f3" type="text" placeholder="Phonenumber">
+                <input id="btnmodify3" class="f3" type="button" value="modify">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                E-mail:  <input class="usrinput f4" type="text" placeholder="E-mail">
+                <input id="btnmodify4" class="f4" type="button" value="modify">
+            </td>
+        </tr>
+
+        <tr>
+            <!--td>
+                sex:  <select style="width: 20%"><option>male</option><option>female</option></select>
+             </td-->
+        </tr>
+
+    </table>
+
+</body>
+</html>

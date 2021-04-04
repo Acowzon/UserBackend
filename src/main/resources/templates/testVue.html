@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 </title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>hi~</p>
+    <p>{{ user.userID }}</p>
+    <p>{{ user.userName }}</p>
+    <p>{{ user.userPhone}}</p>
+    <p>{{ user.userEmail }}</p>
+</div>
+<script>
+        const router = new VueRouter({
+            mode: 'history'
+        })
+        new Vue({
+            el: '#app',
+            router,
+            data: function () {
+                return {
+                    user: {}
+                }
+
+            },
+            mounted: function () {
+                this.getUserInfo();
+            },
+            methods: {
+                getUserInfo: function () {
+                    axios.post('/users/myAccount', {
+                        userID: this.$route.query.id
+                    }, {
+                        baseURL: "http://localhost:8080/",
+                        headers: {
+                            "X-Requested-With": "XMLHttpRequest",
+                            "content-type": 'application/json'
+                        }
+                    }).then(response => {
+                        this.user = response.data.data;
+                    });
+                }
+            }
+        })
+    </script>
+</body>
+</html>

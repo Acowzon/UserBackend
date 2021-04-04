@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><!--get the thymeleaf templates-->
+<head>
+    <meta charset="UTF-8">
+    <title>User Info details</title>
+</head>
+
+<script>
+// for modify clicking function
+</script>
+
+<body>
+
+<h1 align="center">Acowzon User Information</h1>
+<table align="center" style="border: 1px;margin: 0 auto;background:floralwhite" width="50%" cellpadding="5" cellspacing="0" >
+
+    <tr>
+    <tr>
+        <td>
+            User-ID: <p th:text="${userInfo.userID}"></p>
+        </td>
+    </tr>
+    <td>
+        Username:  <input class="usrinput fl" type="text" th:placeholder="${userInfo.userName}"></input>
+        <input id="btnmodify1" class="fl" type="button" value="modify">
+    </td>
+    </tr>
+    <tr>
+        <td>
+            Password:  <input class="usrinput f2" type="text" th:placeholder="${userInfo.passWord}">
+            <input id="btnmodify2" class="f2" type="button" value="modify">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            PhoneNumber:  <input class="usrinput f3" type="text" th:placeholder="${userInfo.userPhone}">
+            <input id="btnmodify3" class="f3" type="button" value="modify" >
+        </td>
+    </tr>
+    <tr>
+        <td>
+            E-mail:  <input class="usrinput f4" type="text" th:placeholder="${userInfo.userEmail}">
+            <input id="btnmodify4" class="f4" type="button" value="modify">
+        </td>
+    </tr>
+
+    <tr>
+        <!--td>
+            sex:  <select style="width: 20%"><option>male</option><option>female</option></select>
+         </td-->
+    </tr>
+
+</table>
+
+</body>
+
+
+</html>

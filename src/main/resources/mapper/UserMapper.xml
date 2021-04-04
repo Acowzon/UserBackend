@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.demo.mapper.UserMapper">
+
+    <resultMap id="UserInfoMap" type="com.example.demo.entity.UserBean" autoMapping="true">
+        <id column="users_id" property="userID"/>
+        <result column="users_name" property="userName"/>
+        <result column="users_phone" property="userPhone"/>
+        <result column="users_email" property="userEmail"/>
+        <result column="users_password" property="passWord"/>
+        <result column="users_type" property="userType"/>
+        <result column="create_time" property="createDate"/>
+        <result column="update_time" property="updateDate"/>
+    </resultMap>
+
+    <select id="getUserInfo" resultMap="UserInfoMap" resultType="com.example.demo.entity.UserBean">
+        select *
+        from users
+        where users.users_id =  #{userID}
+    </select>
+    
+    <select id="login" resultMap="UserInfoMap" resultType="com.example.demo.entity.UserBean">
+        select *
+        from users
+        where users.users_id = #{userID} and users.users_password = #{password}
+    </select>
+    
+    <insert id="insertInfo">
+        insert into users (users_name,users_password,users_phone,users_type,create_time)
+        values(#{userName},#{password},#{userPhone},1,now())
+    </insert>
+
+</mapper>
