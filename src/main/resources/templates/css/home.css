@@ -1,0 +1,47 @@
+body {
+    background-color: #efefef;
+}
+
+.main {
+    margin: 15px;
+    border-radius: 20px;
+    background-color: white;
+    height: 1000px;
+}
+
+.search {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 10px;
+}
+
+.search-text-btn {
+    display: inline-block;
+}
+
+.search .form-control {
+    width: 400px;
+}
+
+.separate {
+    border-top: 1px solid grey;
+}
+
+.show1 {
+    margin-top: 10px;
+}
+
+.image-slideshow {
+    height: 100%;
+    width: 100%;
+}
+
+.classify {
+    margin: 24px;
+}
+
+.header-classify {
+    margin-top: 15px;
+    margin-left: 25px;
+}
