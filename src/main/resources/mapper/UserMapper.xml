@@ -5,15 +5,60 @@
 <mapper namespace="com.example.demo.mapper.UserMapper">
 
     <resultMap id="UserInfoMap" type="com.example.demo.entity.UserBean" autoMapping="true">
-        <id column="users_id" property="userID"/>
-        <result column="users_name" property="userName"/>
-        <result column="users_phone" property="userPhone"/>
-        <result column="users_email" property="userEmail"/>
-        <result column="users_password" property="passWord"/>
-        <result column="users_type" property="userType"/>
-        <result column="create_time" property="createDate"/>
-        <result column="update_time" property="updateDate"/>
+        <id column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_pwd" property="userPwd"/>
+        <result column="user_realname" property="userRealname"/>
+        <result column="user_nickname" property="userNickname"/>
+        <result column="user_image" property="userImage"/>
+        <result column="user_phone" property="Phone"/>
+        <result column="user_email" property="userEmail"/>
+        <result column="user_sex" property="sex"/>
+        <result column="user_birth" property="userBirth"/>
+        <result column="user_type" property="userType"/>
+        <result column="user_address_id" property="userAddressId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
+
+    <update id="userInfoModify" >
+        update user
+        <set >
+            <if test="userAccountName != null">
+                user_name = #{userAccountName},
+            </if>
+            <if test="password != null">
+                user_pwd = #{password},
+            </if>
+            <if test="userRealName != null">
+                user_realname = #{userRealName},
+            </if>
+            <if test="userNickName != null">
+                user_nickname = #{userNickName},
+            </if>
+            <if test="userPhone != null">
+                user_phone = #{userPhone},
+            </if>
+            <if test="userSex != null">
+                user_sex = #{userSex},
+            </if>
+            <if test="userBirth != null">
+                user_birth = #{userBirth},
+            </if>
+            <if test="userEmail != null">
+                entryDate = #{userEmail},
+            </if>
+            <if test="userType != null">
+                user_type = #{userType},
+            </if>
+            <if test="userAddressID != null">
+                user_address_id = #{userAddressID},
+            </if>
+            update_time = now()
+        </set>
+        where user_id = #{userId}
+    </update>
+
 
     <select id="getUserInfo" resultMap="UserInfoMap" resultType="com.example.demo.entity.UserBean">
         select *
@@ -31,5 +76,7 @@
         insert into users (users_name,users_password,users_phone,users_type,create_time)
         values(#{userName},#{password},#{userPhone},1,now())
     </insert>
+
+
 
 </mapper>
